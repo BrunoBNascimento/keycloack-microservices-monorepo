@@ -1,13 +1,13 @@
-import { Application } from "express";
-import productRoutes from "@/infra/routes/checkout";
+import { Application } from 'express';
+import checkoutRoutes from '@/infra/routes/checkout';
 
 const routes = () => {
   return {
     init(app: Application) {
-      console.log("Initializing express rest routes");
-      const product = productRoutes();
+      console.log('Initializing express rest routes');
+      const checkout = checkoutRoutes();
 
-      product.init(app);
+      checkout.init(app);
     },
   };
 };
