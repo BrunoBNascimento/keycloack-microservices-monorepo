@@ -15,6 +15,7 @@
       "@/*": ["*"]
     }
   },
+  "files": ["custom.d.ts"],
   "include": ["src"],
   "exclude": []
 }

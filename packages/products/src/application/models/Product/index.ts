@@ -5,7 +5,7 @@ const { model } = mongoose;
 
 const ProductSchema: Schema = new Schema(
   {
-    age: { type: String, required: true },
+    name: { type: String, required: true },
   },
   { timestamps: true },
 );

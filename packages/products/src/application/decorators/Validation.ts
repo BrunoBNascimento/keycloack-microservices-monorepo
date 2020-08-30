@@ -1,4 +1,5 @@
 import badRequest from '@/application/factories/http/badRequest';
+import CustomValidationException from '../exceptions/CustomValidationException';
 
 const Validation = (JoiSchema: any) => (
   target: Object,
@@ -9,16 +10,20 @@ const Validation = (JoiSchema: any) => (
 
   descriptor.value = function (...args: any[]) {
     const [req, res] = args;
-    const { body } = req;
-    const validated = JoiSchema.validate(body);
+    try {
+      const { body } = req;
+      const validated = JoiSchema.validate(body);
 
-    if (!validated.error) {
-      originalMethod(...args);
-    } else {
-      const { details } = validated;
-
-      const result = badRequest('erro de validação', details);
-      res.status(400).send(result);
+      if (!validated.error) {
+        originalMethod(...args);
+      } else {
+        throw new CustomValidationException(
+          'Erro de validação',
+          validated.error.details,
+        );
+      }
+    } catch (e) {
+      res.handleHttpError(e);
     }
   };
 };
