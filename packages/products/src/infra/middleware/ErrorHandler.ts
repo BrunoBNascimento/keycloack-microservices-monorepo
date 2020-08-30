@@ -1,7 +1,7 @@
 import { NextFunction, Request } from 'express';
 import CustomResponse from './interfaces/CustomResponse';
-import CustomException from '../exceptions/CustomException';
-import CustomValidationException from '../exceptions/CustomValidationException';
+import CustomException from '../../application/exceptions/CustomException';
+import CustomValidationException from '../../application/exceptions/CustomValidationException';
 
 export default (
   req: Request,

@@ -3,7 +3,7 @@ import ICore from '@/infra/core/interfaces/ICore';
 import env from '@/infra/environment';
 import db from '@/infra/db';
 import routes from '@/infra/routes';
-import errorHandler from '@/application/middleware/ErrorHandler';
+import errorHandler from '@/infra/middleware/ErrorHandler';
 
 const core = (): ICore => {
   const app = express();

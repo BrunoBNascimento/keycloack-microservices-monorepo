@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import Validation from '@/application/decorators/Validation';
-import ProductSchema from '@/application/controllers/validations/SaveProduct';
+import ProductSchema from '@/application/controllers/ProductController/validations/SaveProduct';
 import ProductService from '@/application/services/ProductService';
 
 export default class ProductController {
